@@ -1,7 +1,17 @@
 table {
 	width: 100%;
 	display: block;
-	height: 430px;
+	height: 150px;
 	overflow: auto;
 	display: inline-block;
 }
+
+td {
+	border: 1px solid #ccc;
+}
+
+tr:hover {
+	color: #f1f1f1;
+	background-color: #337AB7;
+}
+

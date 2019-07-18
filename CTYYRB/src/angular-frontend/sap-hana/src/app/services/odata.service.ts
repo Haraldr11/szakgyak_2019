@@ -5,11 +5,9 @@ import { HttpClient } from '@angular/common/http';
 export class OdataService {
 	constructor(private http: HttpClient) {   }
 
-	configUrl = '/hana/tarsasag.xsodata/tarsasag?$top=1000&$format=json&$orderby=JEGYZ_TOKE_ERT_HUF+desc';
+	configUrl = '/hana/tarsasag.xsodata/';
 	getData(params) {
-		console.log(params);
-		let rval = this.http.get(this.configUrl);
-		console.log('TYPE OF RVAL: ' + rval.constructor.name);
-		return rval;
+		console.log(this.configUrl + params);
+		return this.http.get(this.configUrl + params);
 	}
 }

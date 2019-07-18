@@ -1,0 +1,12 @@
+<!-- TODO: görgővel lapozható, fix méretű, "dinamikus" táblázat" -->
+<!-- TODO: évenként lebontva a tábla adatok, mint a diagrammnál  -->
+<table>
+  <tr>
+    <th>Név</th>
+    <th>Vagyon</th>
+  </tr>
+  <tr *ngFor="let row of data">
+    <td>{{row.TARS_ROV_NEV}}</td>
+    <td>{{row.JEGYZ_TOKE_ERT_HUF/1000000}}</td>
+  </tr>
+</table>

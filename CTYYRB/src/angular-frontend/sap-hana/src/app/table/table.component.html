@@ -1,12 +1,70 @@
 <!-- TODO: görgővel lapozható, fix méretű, "dinamikus" táblázat" -->
 <!-- TODO: évenként lebontva a tábla adatok, mint a diagrammnál  -->
+<!-- regions -->
 <table>
   <tr>
-    <th>Név</th>
-    <th>Vagyon</th>
+    <th>{{regionColumns[0]}}</th>
+    <th>{{regionColumns[1]}}</th>
+    <th>{{regionColumns[2]}}</th>
   </tr>
-  <tr *ngFor="let row of data">
-    <td>{{row.TARS_ROV_NEV}}</td>
-    <td>{{row.JEGYZ_TOKE_ERT_HUF/1000000}}</td>
+  <tr *ngFor="let e of regionData">
+    <td (click)="selectRegion(e.nev)">{{e.nev}}</td>
   </tr>
 </table>
+
+<!-- counties -->
+<table>
+  <tr>
+    <th>{{countyColumns[0]}}</th>
+    <th>{{countyColumns[1]}}</th>
+    <th>{{countyColumns[2]}}</th>
+  </tr>
+  <tr *ngFor="let e of countyData">
+    <td (click)="selectCounty(e.megye)">{{e.megye}}</td>
+  </tr>
+</table>
+
+<!-- cities -->
+<table>
+  <tr>
+    <th>{{cityColumns[0]}}</th>
+    <th>{{cityColumns[1]}}</th>
+    <th>{{cityColumns[2]}}</th>
+  </tr>
+  <tr *ngFor="let e of cityData">
+    <td>{{e.telepules}}</td>
+  </tr>
+</table>
+
+<!-- years -->
+<div class="btn-group">
+  <button type="button" 
+          value="2011" 
+          (click)="setYear($event.target.value)"
+          class="btn btn-primary">2011</button>
+  <button type="button" 
+          value="2012" 
+          (click)="setYear($event.target.value)" 
+          class="btn btn-primary">2012</button>
+  <button type="button" 
+          value="2013" 
+          (click)="setYear($event.target.value)" 
+          class="btn btn-primary">2013</button>
+  <button type="button" 
+          value="2014" 
+          (click)="setYear($event.target.value)" 
+          class="btn btn-primary">2014</button>
+  <button type="button" 
+          value="2015" 
+          (click)="setYear($event.target.value)" 
+          class="btn btn-primary">2015</button>
+  <button type="button" 
+          value="2016" 
+          (click)="setYear($event.target.value)" 
+          class="btn btn-primary">2016</button>
+  <button type="button" 
+          value="2017" 
+          (click)="setYear($event.target.value)" 
+          class="btn btn-primary">2017</button>
+</div>
+

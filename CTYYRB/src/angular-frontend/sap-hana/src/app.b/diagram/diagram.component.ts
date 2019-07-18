@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit, onChanges } from '@angular/core';
 import * as CanvasJS from '../../../lib/canvasjs.min';
 import { OdataService } from '../services/odata.service';
 
@@ -15,7 +15,7 @@ export class DiagramComponent implements OnInit {
   constructor(private odata: OdataService) { }
 
   ngOnInit() {
-    this.odata.getData(["tarsasag?$top=1000&$format=json&$orderby=TARS_ROV_NEV&$filter=ASZ_EVE eq '2010'"]).subscribe((res: any) => {
+    this.odata.getData(['TARS_ROV_NEV','JEGYZ_TOKE_ERT_HUF']).subscribe((res: any) => {
       this.data = res.d.results;
       show_graph(this.data);
     });
