@@ -8,82 +8,79 @@ import { OdataService } from '../services/odata.service';
   styleUrls: ['./diagram.component.scss']
 })
 export class DiagramComponent implements OnInit {
-  // TODO
-  year = 2011;
-  data;
+  selectedYear : number = 2011;
+  data         : any    = [];
 
   constructor(private odata: OdataService) { }
 
   ngOnInit() {
-    this.odata.getData(["tarsasag?$top=1000&$format=json&$orderby=TARS_ROV_NEV&$filter=ASZ_EVE eq '2010'"]).subscribe((res: any) => {
-      this.data = res.d.results;
-      show_graph(this.data);
-    });
-    function show_graph(db) {
-      let newdb = db.filter(function (db) {
-        return db.ASZ_EVE == 2011;
+    this.odata
+      .getYr()
+      .subscribe(n => { 
+        this.selectedYear = n;
+        console.log(`QUERY: DIAGRAM/getYr()`);
+        this.refreshData(this.selectedYear, "");
       });
-      // console.log("DB.LENGTH: " + db.length)
-      // console.log("NEWDB.LENGTH: " + newdb.length)
-      let arr = [];
-      for (let i = 0; i < newdb.length; ++i) {
-        arr.push({ label: newdb[i].TARS_ROV_NEV, 
-                   y:     newdb[i].JEGYZ_TOKE_ERT_HUF / 1000000 });
-      }
-      var chart = new CanvasJS.Chart("chartContainer",
-      {
-        animationEnabled: true,
-        exportEnabled: true,
-        title: {
-          text: "Jegyzett tőke / millió HUF",
-          fontSize: 20
-        },
-        data: [ 
-          {
-            type: "column",
-            indexLabelPlacement: "outside",
-            indexLabelOrientation: "horizontal",
-            dataPoints: arr
-          } 
-        ],
-        backgroundColor: "#F1F1F1"
-      });
-      chart.render();
-    }
+    // this.odata
+    //   .getAreaUrl()
+    //   .subscribe(url => {
+    //     console.log(`QUERY: DIAGRAM/getAreaUrl()`);
+    //     this.refreshData(this.selectedYear, url);
+    //   });
+    // this.refreshData(this.selectedYear, "");
   }
-  onChange(val) {
-    this.year = val;
-    console.log(val);
 
-    let db = this.data;
-    let newdb = db.filter(function (db) {
-      return db.ASZ_EVE == val;
-    });
-    console.log("NEWDB.LENGTH: " + newdb.length)
-
-    let arr = [];
-    for (let i = 0; i < newdb.length; ++i) {
-      arr.push({ label: newdb[i].TARS_ROV_NEV, 
-                 y:     newdb[i].JEGYZ_TOKE_ERT_HUF / 1000000 });
+  refreshData(n: number, url: string): void {
+    if (url === "") {
+      url = `tarsasag?$top=1000&$orderby=TARS_ROV_NEV&` + 
+            `$filter=ASZ_EVE eq ${n}`
     }
-    let chart = new CanvasJS.Chart("chartContainer",
-    {
+    this.odata
+      .getData(url)
+      .subscribe((res: any) => {
+        this.data = res.d.results;
+        this.showGraph();
+      });
+  }
+
+  showGraph(): void {
+    let arr = [];
+    this.data.forEach(function (item) {
+      arr.push({label: item.TARS_ROV_NEV,y: item.JEGYZ_TOKE_ERT_HUF/1000000});
+    });
+
+    let name = "";
+    if (this.odata.countyName === "") {
+      name = this.odata.regionName;
+    } else if (this.odata.cityName === "") {
+      name = this.odata.countyName;
+    } else {
+      name = this.odata.cityName;
+    }
+
+    let chart = new CanvasJS.Chart("chartContainer", {
       animationEnabled: true,
       exportEnabled: true,
       title: {
-        text: "Jegyzett tőke / millió HUF",
+        text: name,
         fontSize: 20
       },
-      data: [
+      subtitles: [
         {
-          type: "column",
+          text: "Jegyzett tőke / Millió HUF"
+        }
+      ],
+      data: [ 
+        {
+          type: "doughnut",
           indexLabelPlacement: "outside",
           indexLabelOrientation: "horizontal",
-          dataPoints:  arr
-        }
+          dataPoints: arr
+        } 
       ],
       backgroundColor: "#F1F1F1"
     });
+    
     chart.render();
   }
 }

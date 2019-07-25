@@ -1,9 +1,27 @@
 table {
-	width: 100%;
+	width: 33%;
 	display: block;
 	height: 150px;
 	overflow: auto;
 	display: inline-block;
+}
+
+.table-quantity {
+	width: 40px;
+}
+
+th {
+	width: 50%;
+}
+
+.table-heading:hover {
+	color: #000000;
+	background-color: #f1f1f1;
+}
+
+table tr.active {
+	color: #000000;
+	background-color: #cccccc;
 }
 
 td {
@@ -15,3 +33,6 @@ tr:hover {
 	background-color: #337AB7;
 }
 
+button.active {
+	background-color: #265d8c;
+}
