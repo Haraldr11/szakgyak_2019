@@ -1,0 +1,31 @@
+ID: SzakmaiGyak
+_schema-version: '2.1'
+description: Szakmai gyakorlathoz db
+version: 0.0.1
+
+modules:
+ - name: database
+   type: hdb
+   path: database
+   requires:
+    - name: hdi_database
+
+
+ - name: odata
+   type: nodejs
+   path: odata
+   requires:
+    - name: hdi_database
+   provides:
+    - name: odata_api
+      properties:
+         url: ${default-url}
+
+resources:
+ - name: hdi_database
+   parameters:
+      config:
+         schema: G1EGF2
+   properties:
+      hdi-container-name: ${service-name}
+   type: com.sap.xs.hdi-container

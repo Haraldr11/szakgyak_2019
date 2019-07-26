@@ -1,0 +1,12 @@
+<body>
+  <h1>Angular teszt</h1>
+  <div id="main">
+    <select (change)="onChange($event.target.value)">
+      <option *ngFor='let item of years'>
+        {{ item.asz_eve }}
+      </option>
+    </select>
+
+    <div id="chartContainer" style="height: 400px; width: 100%;"></div>
+  </div>
+</body>

@@ -1,0 +1,93 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Mini feladat
+  </h1>
+  
+</div>
+
+<ul>
+  
+  <li>
+    <div id="chartContainer" style="height: 370px; width: 100%; background-color:#ADD8E6"></div>
+  </li>
+
+  <li>
+    <select (change)="onChange($event.target.value)">
+	<option *ngFor='let item of years'>
+		{{item}}
+  </select>
+  
+
+
+
+
+<ul *ngFor='let item of data'>
+
+	<li>
+	
+	<details>
+	
+	<summary>
+	<a [title]="item.tars_hosz_nev">
+    {{ item.tars_rov_nev }}	
+	</a>
+	</summary>
+	
+	<table>
+	
+	{{item.cim_egyben}}<br>
+	{{item.gazd_form}} , {{item.nemgazd_ag_megnev}} <br>
+	
+	{{ item.jegyz_toke_ert_huf/1000000 + ' millió huf' }}<br>
+	{{item.cim_egyben}}<br>
+	</table>
+
+	
+	</details>
+	</li>
+	</ul>
+	
+
+
+
+
+
+  <!--
+    "TARS_ROV_NEV": "MAGGO Rt. f.a.",
+    "TARS_HOSZ_NEV": "MAGGO Termelő Részvénytársaság f.a.",
+    "CIM_EGYBEN": "Ismeretlen",
+    "TARS_TIPUS_MEGNEV": "Gazdasági Társaság",
+    "TARS_TIPUS_KOD": 1,
+    "ADOSZAM": "99990004-0-00",
+    "GAZD_FORM": "Részvénytársaság",
+    "GAZD_FORM_KOD": 15,
+    "CEGALL": "Felszámolás alatt",
+    "CEGALL_KOD": 1,
+    "NEMGAZD_AG_MEGNEV": "Feldolgozóipar",
+    "NEMGAZD_AG_KOD": "C",
+    "NEMGAZD_AGAZAT_MEGNEV": "Gép, gépi berendezés gyártása",
+    "NEMGAZD_AGAZAT_KOD": 28,
+    "NEMGAZD_SZAKAGAZAT_MEGNEV": "M.n.s. egyéb általános rendeltetésű gép gyártása",
+    "NEMGAZD_SZAKAGAZAT_KOD": 2829,
+    "JEGYZ_TOKE_ERT_HUF": 667299000,
+    "ORSZAG": "Magyarország",
+    "ORSZAG_KOD": "HU",
+    "REGIO": "Közép-Magyarország régió",
+    "REGIO_KOD": 6,
+    "MEGYE": "Budapest",
+    "MEGYE_KOD": 1,
+    "TELEPULES": "Budapest",
+    "TELEPULES_KOD": 60,
+    "ASZ_EVE": 2014
+
+
+
+</ul>
+<ul *ngFor='let item of data'>
+	<li>
+		{{ item.tars_rov_nev }}
+		{{ item.regio }}
+	</li>
+  -->
+

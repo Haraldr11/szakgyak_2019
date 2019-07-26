@@ -1,0 +1,52 @@
+<head>
+  <title>{{title}}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<!--
+<nav class="navbar navbar-inverse visible-xs">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li>
+          <a routerLink="/diagram">Diagram</a>
+        </li>
+        <li>
+          <a routerLink="/table">Táblázat</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+-->
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="well">
+        <app-table></app-table>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="well">
+        <!-- <p>kiskutya</p> -->
+        <app-diagram></app-diagram>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="well">
+        <app-map></app-map>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
+<img src="http://trajectorymagazine.com/wp-content/uploads/SAP-HANA-logo.png" style="width: 100%">
+-->

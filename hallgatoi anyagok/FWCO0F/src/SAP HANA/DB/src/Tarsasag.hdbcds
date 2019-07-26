@@ -1,0 +1,101 @@
+context Tarsasag{
+
+	entity Tarsasag {
+    	TARS_ROV_NEV              : String(200);
+        TARS_HOSZ_NEV             : String(200);
+        CIM_EGYBEN                : String(200);
+        TARS_TIPUS_MEGNEV         : String(50);
+        TARS_TIPUS_KOD            : Integer;
+        ADOSZAM                   : String(100);
+        GAZD_FORM                 : String(100);
+        GAZD_FORM_KOD             : Integer;
+        CEGALL                    : String(100);
+        CEGALL_KOD                : Integer;
+        NEMGAZD_AG_MEGNEV         : String(100);
+        NEMGAZD_AG_KOD            : String(2);
+        NEMGAZD_AGAZAT_MEGNEV     : String(200);
+        NEMGAZD_AGAZAT_KOD        : Integer;
+        NEMGAZD_SZAKAGAZAT_MEGNEV : String(200);
+        NEMGAZD_SZAKAGAZAT_KOD    : Integer;
+        JEGYZ_TOKE_ERT_HUF        : Double;
+        ORSZAG                    : String(50);
+        ORSZAG_KOD                : String(2);
+        REGIO                     : String(100);
+        REGIO_KOD                 : Integer;
+        MEGYE                     : String(100);
+        MEGYE_KOD                 : Integer;
+        TELEPULES                 : String(100);
+        TELEPULES_KOD             : Integer;
+        ASZ_EVE                   : Integer;
+    };
+    
+    Entity GAZD_FORM{
+    	GAZD_FORM_KOD : Integer;
+    	GAZD_FORM : String(100);
+    };
+    
+    Entity CEGALL{
+    	CEGALL_KOD : Integer;
+    	CEGALL: String(100);
+    };
+    
+    Entity NEMGAZD_AG{
+    	NEMGAZD_AG_KOD : String(2);
+    	NEMGAZD_AG_MEGNEV : String(100);
+    };
+    
+    Entity NEMGAZD_AGAZAT{
+    	NEMGAZD_AGAZAT_KOD : Integer;
+    	NEMGAZD_AGAZAT_MEGNEV: String(200);
+    };
+    
+    Entity NEMGAZD_SZAKAGAZAT{
+    	NEMGAZD_SZAKAGAZAT_KOD : Integer;
+    	NEMGAZD_SZAKAGAZAT_MEGNEV: String(200);
+    };
+    
+    Entity ORSZAG{
+    	ORSZAG_KOD : String(2);
+    	ORSZAG : String(100);
+    };
+    
+    Entity REGIO{
+    	REGIO_KOD : Integer;
+    	REGIO: String(100);
+    };
+    
+    Entity MEGYE{
+    	MEGYE_KOD : Integer;
+    	MEGYE: String(100);
+    };
+    
+    Entity TELEPULES{
+    	TELEPULES_KOD : Integer;
+    	TELEPULES: String(100);
+    };
+    
+    Entity TARS_TIPUS{
+    	TARS_TIPUS_KOD : Integer;
+    	TARS_TIPUS_MEGNEV: String(100);
+    };
+    
+    Entity Tarsasag_Compact{
+    	TARS_ROV_NEV              : String(200);
+        TARS_HOSZ_NEV             : String(200);
+        CIM_EGYBEN                : String(200);
+        TARS_TIPUS_KOD            : Integer;
+        ADOSZAM                   : String(100);
+        GAZD_FORM_KOD             : Integer;
+        CEGALL_KOD                : Integer;
+        NEMGAZD_AG_KOD            : String(2);
+        NEMGAZD_AGAZAT_KOD        : Integer;
+        NEMGAZD_SZAKAGAZAT_KOD    : Integer;
+        JEGYZ_TOKE_ERT_HUF        : Double;
+        ORSZAG_KOD                : String(2);
+        REGIO_KOD                 : Integer;
+        MEGYE_KOD                 : Integer;
+        TELEPULES_KOD             : Integer;
+        ASZ_EVE                   : Integer;
+    };
+	
+};

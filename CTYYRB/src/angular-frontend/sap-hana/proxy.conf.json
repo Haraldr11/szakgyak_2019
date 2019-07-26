@@ -1,8 +1,0 @@
-{
-	"/hana": {
-		target: "https://oktnb132.inf.elte.hu:51044",
-		secure: false,
-		changeOrigin: true
-	}
-	
-}

@@ -1,0 +1,4 @@
+service{
+	"CV_Tarsasagok" as "CalcView"  keys generate local "ID";
+}
+

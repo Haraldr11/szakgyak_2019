@@ -1,0 +1,27 @@
+ID: Tarsasagok
+_schema-version: '2.1'
+version: 0.0.1
+
+modules:
+ - name: DB
+   type: hdb
+   path: DB
+   requires:
+    - name: hdi_DB
+
+
+ - name: jsmodule
+   type: nodejs
+   path: jsmodule
+   requires:
+    - name : hdi_DB
+   provides:
+    - name: jsmodule_api
+      properties:
+         url: ${default-url}
+
+resources:
+ - name: hdi_DB
+   properties:
+      hdi-container-name: ${service-name}
+   type: com.sap.xs.hdi-container

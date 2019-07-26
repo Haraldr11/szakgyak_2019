@@ -1,0 +1,30 @@
+ID: feladat1
+_schema-version: '2.1'
+version: 0.0.1
+
+modules:
+ - name: DB
+   type: hdb
+   path: DB
+   requires:
+    - name: hdi_DB
+
+
+ - name: odata
+   type: nodejs
+   path: odata
+   requires:
+    - name: hdi_DB
+   provides:
+    - name: odata_api
+      properties:
+         url: ${default-url}
+
+resources:
+ - name: hdi_DB
+   parameters:
+      config:
+         schema: feladat1_db_psbd_2
+   properties:
+      hdi-container-name: ${service-name}
+   type: com.sap.xs.hdi-container

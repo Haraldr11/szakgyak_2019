@@ -1,0 +1,54 @@
+<!--Region table-->
+<table>
+  <tr>
+    <th *ngFor="let col of regionColumns">
+      {{col}}
+    </th>
+  </tr>
+  <tr *ngFor="let item of regionData">
+    <td (click)="selectRegion(item.Regio)">
+      {{ item.Regio }}
+    </td>
+    <td>
+      {{ item.Mennyiseg }}
+    </td>
+    <td>
+      {{ item.Ertek}}
+    </td>
+  </tr>
+</table>
+
+<!-- County table-->
+<table>
+  <tr>
+    <th *ngFor="let col of countyColumns">
+      {{col}}
+    </th>
+  </tr>
+  <tr *ngFor="let item of countyData">
+    <td (click)="selectCounty(item.MEGYE)">
+      {{ item.MEGYE }}
+    </td>
+    <td>
+      {{ item.JEGYZ_TOKE_ERT_HUF }}
+    </td>
+
+  </tr>
+</table>
+
+<!-- Settlement table -->
+<table>
+  <tr>
+    <th *ngFor="let col of settlementColumns">
+      {{col}}
+    </th>
+  </tr>
+  <tr *ngFor="let item of settlementData">
+    <td>
+      {{ item.TELEPULES }}
+    </td>
+    <td>
+      {{ item.JEGYZ_TOKE_ERT_HUF }}
+    </td>
+  </tr>
+</table>

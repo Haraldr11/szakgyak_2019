@@ -1,0 +1,98 @@
+context Data {
+    context raw_data {
+
+        entity data {
+            tars_rov_nev                : String(600);
+            tars_hosz_nev               : String(600);
+            cim_egyben                  : String(600);
+            tars_tipus_megnev           : String(600);
+            tars_tipus_kod              : String(600);
+            adoszam                     : String(600);
+            gazd_form                   : String(600);
+            cegall                      : String(600);
+            cegall_kod                  : String(600);
+            nemgazd_ag_megnev           : String(600);
+            nemgazd_ag_kod              : String(600);
+            nemgazd_agazat_megnev       : String(600);
+            nemgazd_agazat_kod          : String(600);
+            nemgazd_szakagagazat_megnev : String(600);
+            nemgazd_szakagazat_kod      : String(600);
+            jegyz_toke_ert_huf          : String(600);
+            orszag                      : String(600);
+            orszag_kod                  : String(600);
+            regio                       : String(600);
+            regio_kod                   : String(600);
+            megye                       : String(600);
+            megye_kod                   : String(600);
+            telepules                   : String(600);
+            telepules_kod               : String(600);
+            asz_eve                     : String(600);
+        };
+        
+        entity cegall_kod {
+        cegall_kod : Integer;
+        cegall     : String(600);
+    };
+
+    entity megye_kod {
+        megye_kod : Integer;
+        megye     : String(600);
+    };
+
+    entity nemgazd_agazat_kod {
+        nemgazd_agazat_kod    : Integer;
+        nemgazd_agazat_megnev : String(600);
+    };
+
+    entity nemgazd_ag_kod {
+        nemgazd_ag_kod    : String(600);
+        nemgazd_ag_megnev : String(600);
+    };
+
+    entity nemgazd_szakagazat_kod {
+        nemgazd_szakagazat_kod      : Integer;
+        nemgazd_szakagagazat_megnev : String(600);
+    };
+
+    entity orszag_kod {
+        orszag_kod : String(600);
+        orszag     : String(600);
+    };
+
+    entity regio_kod {
+        regio_kod : Integer;
+        regio     : String(600);
+    };
+
+    entity tarsasagok {
+        tars_rov_nev           : String(600);
+        tars_hosz_nev          : String(600);
+        cim_egyben             : String(600);
+        tars_tipus_kod         : Integer;
+        adoszam                : String(600);
+        gazd_form              : String(600);
+        cegall_kod             : Integer;
+        nemgazd_ag_kod         : String(600);
+        nemgazd_agazat_kod     : Integer;
+        nemgazd_szakagazat_kod : Integer;
+        jegyz_toke_ert_huf     : Integer64;
+        orszag_kod             : String(600);
+        regio_kod              : Integer;
+        megye_kod              : Integer;
+        telepules_kod          : Integer;
+        asz_eve                : Integer;
+    };
+
+    entity tars_tipus_kod {
+        tars_tipus_kod    : Integer;
+        tars_tipus_megnev : String(600);
+    };
+
+    entity telepules_kod {
+        telepules_kod : Integer;
+        telepules     : String(600);
+    };
+};
+};
+
+

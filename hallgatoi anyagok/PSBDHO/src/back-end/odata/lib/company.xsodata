@@ -1,0 +1,3 @@
+service{
+	"view" as "COMPANY" key generate local "GenID";
+}

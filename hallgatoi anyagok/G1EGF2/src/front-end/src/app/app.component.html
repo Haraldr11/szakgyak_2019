@@ -1,0 +1,45 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <img width="300" alt="Angular Logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Aperture_Laboratories_Logo.svg/1280px-Aperture_Laboratories_Logo.svg.png">
+</div>
+
+<div style="text-align:center">
+    <select (change)="onChange($event.target.value)" >
+      <option *ngFor='let item of years'>
+          {{ item }}
+    </select>
+    <select (change)="onChange($event.target.value)" >
+      <option *ngFor='let item of regions'>
+          {{ item }}
+    </select>
+</div>
+
+    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

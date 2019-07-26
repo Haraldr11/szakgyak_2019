@@ -1,0 +1,13 @@
+service {
+	"newcalcview" as "Tarsasag";
+	"Years" as "Years";
+	"Regions" as "Regions";
+	
+	"Tarsasag.Tarsasag" as "proba" 
+	keys generate local "ID"
+	aggregates always (SUM of "JEGYZ_TOKE_ERT_HUF");
+}
+/*
+aggregates always (SUM of "JEGYZ_TOKE_ERT_HUF")
+    aggregates always (COUNT of "TARS_ROV_NEV");
+*/

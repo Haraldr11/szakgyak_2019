@@ -1,0 +1,7 @@
+{
+  "/hana": {
+    "target": "https://oktnb132.inf.elte.hu:51054",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

@@ -1,0 +1,93 @@
+svg .Land {
+	stroke-width: 2;
+	stroke: #000;
+	transition: stroke 0.5s, stroke-width 0.5s;
+	fill: #f1f1f1;
+}
+
+// svg .Land:hover, .Land.active {
+// 	cursor: pointer;
+// 	stroke-width: 4;
+// 	stroke: #000;
+// }
+
+svg .county.active {
+	stroke-width: 6;
+	stroke: #265d8c;
+	fill: #337AB7;
+}
+
+svg {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+/*
+id="svg2"
+id="defs131" />
+id="Hilfslinien_anzeigen">
+id="Land">
+id="rect8" /> 
+id="path10" />
+id="path12" />
+id="path14" />
+id="polygon16" />
+id="polygon18" />
+id="polygon20" />
+id="polygon22" />
+id="polygon24" />
+id="polygon26" />
+id="polygon28" />
+id="polygon30" />
+id="polygon32" />
+id="polygon34" />
+id="polygon36" />
+id="polygon38" />
+id="polygon40" />
+id="polygon42" />
+id="polygon44" />
+id="path46" />
+id="polygon48" />
+id="polygon50" />
+id="Seen">
+id="polygon53" />
+id="path55" />
+id="Linien">
+id="polyline58" />
+id="polyline60" />
+id="polyline62" />
+id="polyline64" />
+id="polyline66" />
+id="polyline68" />
+id="polyline70" />
+id="polyline72" />
+id="path74" />
+id="polyline76" />
+id="polyline78" />
+id="polyline80" />
+id="polyline82" />
+id="polyline84" />
+id="polyline86" />
+id="polyline88" />
+id="polyline90" />
+id="polyline92" />
+id="polyline94" />
+id="polyline96" />
+id="path98" />
+id="polyline100" />
+id="polyline102" />
+id="polyline104" />
+id="polyline106" />
+id="polyline108" />
+id="polyline110" />
+id="path112" />
+id="path114" />
+id="path116" />
+id="path118" />
+id="polyline120" />
+id="path122" />
+id="path124" />
+id="path126" />
+id="path128" />
+*/

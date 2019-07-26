@@ -1,0 +1,749 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="view" applyPrivilegeType="NONE" dataCategory="DEFAULT" schemaVersion="3.0" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="view"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="ws.Gazd_form">
+    <resourceUri>ws.Gazd_form</resourceUri>
+  </DataSource>
+  <DataSource id="ws.Tarsasag_kodok">
+    <resourceUri>ws.Tarsasag_kodok</resourceUri>
+  </DataSource>
+  <DataSource id="ws.Nemgazd_szakagazat">
+    <resourceUri>ws.Nemgazd_szakagazat</resourceUri>
+  </DataSource>
+  <DataSource id="ws.Megye">
+    <resourceUri>ws.Megye</resourceUri>
+  </DataSource>
+  <DataSource id="ws.Regio">
+    <resourceUri>ws.Regio</resourceUri>
+  </DataSource>
+  <DataSource id="ws.Tarsasag">
+    <resourceUri>ws.Tarsasag</resourceUri>
+  </DataSource>
+  <DataSource id="ws.Nemgazd_ag">
+    <resourceUri>ws.Nemgazd_ag</resourceUri>
+  </DataSource>
+  <DataSource id="ws.Nemgazd_agazat">
+    <resourceUri>ws.Nemgazd_agazat</resourceUri>
+  </DataSource>
+  <DataSource id="ws.Orszag">
+    <resourceUri>ws.Orszag</resourceUri>
+  </DataSource>
+  <DataSource id="ws.Telepules">
+    <resourceUri>ws.Telepules</resourceUri>
+  </DataSource>
+  <DataSource id="ws.Cegall">
+    <resourceUri>ws.Cegall</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:JoinView" id="Tars_Join_1" cardinality="CN_N" joinType="inner" multiJoinNode="Tars_Join" multiJoinCentralTable="ws.Cegall" multiJoinOrder="Outside In">
+    <viewAttributes>
+      <viewAttribute id="Gazd_form_nev"/>
+      <viewAttribute id="Tarsasag_nev"/>
+      <viewAttribute id="GAZD_FORM_KOD" aggregationType="sum"/>
+      <viewAttribute id="CEGALL_KOD" aggregationType="sum"/>
+      <viewAttribute id="NEMGAZD_AG_KOD"/>
+      <viewAttribute id="NEMGAZD_AGAZAT_KOD" aggregationType="sum"/>
+      <viewAttribute id="NEMGAZD_SZAKAGAZAT_KOD" aggregationType="sum"/>
+      <viewAttribute id="JEGYZ_TOKE_ERT_HUF" aggregationType="sum"/>
+      <viewAttribute id="ORSZAG_KOD"/>
+      <viewAttribute id="REGIO_KOD" aggregationType="sum"/>
+      <viewAttribute id="MEGYE_KOD" aggregationType="sum"/>
+      <viewAttribute id="TELEPULES_KOD" aggregationType="sum"/>
+      <viewAttribute id="ASZ_EVE"/>
+      <viewAttribute id="NEV"/>
+      <viewAttribute hidden="true" id="JOIN$KOD$GAZD_FORM_KOD"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="ws.Gazd_form">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Gazd_form_nev" source="NEV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$KOD$GAZD_FORM_KOD" source="KOD"/>
+    </input>
+    <input node="ws.Tarsasag_kodok">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Tarsasag_nev" source="NEV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GAZD_FORM_KOD" source="GAZD_FORM_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CEGALL_KOD" source="CEGALL_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NEMGAZD_AG_KOD" source="NEMGAZD_AG_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NEMGAZD_AGAZAT_KOD" source="NEMGAZD_AGAZAT_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NEMGAZD_SZAKAGAZAT_KOD" source="NEMGAZD_SZAKAGAZAT_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JEGYZ_TOKE_ERT_HUF" source="JEGYZ_TOKE_ERT_HUF"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ORSZAG_KOD" source="ORSZAG_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REGIO_KOD" source="REGIO_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MEGYE_KOD" source="MEGYE_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TELEPULES_KOD" source="TELEPULES_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ASZ_EVE" source="ASZ_EVE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NEV" source="NEV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$KOD$GAZD_FORM_KOD" source="GAZD_FORM_KOD"/>
+    </input>
+    <joinAttribute name="JOIN$KOD$GAZD_FORM_KOD"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Tars_Join_2" cardinality="CN_N" joinType="inner" multiJoinNode="Tars_Join" multiJoinCentralTable="ws.Cegall" multiJoinOrder="Outside In">
+    <viewAttributes>
+      <viewAttribute id="Gazd_form_nev"/>
+      <viewAttribute id="Nemgazd_szakagazat_nev"/>
+      <viewAttribute id="Tarsasag_nev"/>
+      <viewAttribute id="GAZD_FORM_KOD" aggregationType="sum"/>
+      <viewAttribute id="CEGALL_KOD" aggregationType="sum"/>
+      <viewAttribute id="NEMGAZD_AG_KOD"/>
+      <viewAttribute id="NEMGAZD_AGAZAT_KOD" aggregationType="sum"/>
+      <viewAttribute id="NEMGAZD_SZAKAGAZAT_KOD" aggregationType="sum"/>
+      <viewAttribute id="JEGYZ_TOKE_ERT_HUF" aggregationType="sum"/>
+      <viewAttribute id="ORSZAG_KOD"/>
+      <viewAttribute id="REGIO_KOD" aggregationType="sum"/>
+      <viewAttribute id="MEGYE_KOD" aggregationType="sum"/>
+      <viewAttribute id="TELEPULES_KOD" aggregationType="sum"/>
+      <viewAttribute id="ASZ_EVE"/>
+      <viewAttribute id="NEV"/>
+      <viewAttribute hidden="true" id="JOIN$KOD$NEMGAZD_SZAKAGAZAT_KOD"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="ws.Nemgazd_szakagazat">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Nemgazd_szakagazat_nev" source="NEV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$KOD$NEMGAZD_SZAKAGAZAT_KOD" source="KOD"/>
+    </input>
+    <input node="Tars_Join_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Gazd_form_nev" source="Gazd_form_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Tarsasag_nev" source="Tarsasag_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GAZD_FORM_KOD" source="GAZD_FORM_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CEGALL_KOD" source="CEGALL_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NEMGAZD_AG_KOD" source="NEMGAZD_AG_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NEMGAZD_AGAZAT_KOD" source="NEMGAZD_AGAZAT_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NEMGAZD_SZAKAGAZAT_KOD" source="NEMGAZD_SZAKAGAZAT_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JEGYZ_TOKE_ERT_HUF" source="JEGYZ_TOKE_ERT_HUF"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ORSZAG_KOD" source="ORSZAG_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REGIO_KOD" source="REGIO_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MEGYE_KOD" source="MEGYE_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TELEPULES_KOD" source="TELEPULES_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ASZ_EVE" source="ASZ_EVE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NEV" source="NEV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$KOD$NEMGAZD_SZAKAGAZAT_KOD" source="NEMGAZD_SZAKAGAZAT_KOD"/>
+    </input>
+    <joinAttribute name="JOIN$KOD$NEMGAZD_SZAKAGAZAT_KOD"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Tars_Join_3" cardinality="CN_N" joinType="inner" multiJoinNode="Tars_Join" multiJoinCentralTable="ws.Cegall" multiJoinOrder="Outside In">
+    <viewAttributes>
+      <viewAttribute id="Gazd_form_nev"/>
+      <viewAttribute id="Megye_nev"/>
+      <viewAttribute id="Nemgazd_szakagazat_nev"/>
+      <viewAttribute id="Tarsasag_nev"/>
+      <viewAttribute id="GAZD_FORM_KOD" aggregationType="sum"/>
+      <viewAttribute id="CEGALL_KOD" aggregationType="sum"/>
+      <viewAttribute id="NEMGAZD_AG_KOD"/>
+      <viewAttribute id="NEMGAZD_AGAZAT_KOD" aggregationType="sum"/>
+      <viewAttribute id="NEMGAZD_SZAKAGAZAT_KOD" aggregationType="sum"/>
+      <viewAttribute id="JEGYZ_TOKE_ERT_HUF" aggregationType="sum"/>
+      <viewAttribute id="ORSZAG_KOD"/>
+      <viewAttribute id="REGIO_KOD" aggregationType="sum"/>
+      <viewAttribute id="MEGYE_KOD" aggregationType="sum"/>
+      <viewAttribute id="TELEPULES_KOD" aggregationType="sum"/>
+      <viewAttribute id="ASZ_EVE"/>
+      <viewAttribute id="NEV"/>
+      <viewAttribute hidden="true" id="JOIN$KOD$MEGYE_KOD"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="ws.Megye">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Megye_nev" source="NEV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$KOD$MEGYE_KOD" source="KOD"/>
+    </input>
+    <input node="Tars_Join_2">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Gazd_form_nev" source="Gazd_form_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Nemgazd_szakagazat_nev" source="Nemgazd_szakagazat_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Tarsasag_nev" source="Tarsasag_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GAZD_FORM_KOD" source="GAZD_FORM_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CEGALL_KOD" source="CEGALL_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NEMGAZD_AG_KOD" source="NEMGAZD_AG_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NEMGAZD_AGAZAT_KOD" source="NEMGAZD_AGAZAT_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NEMGAZD_SZAKAGAZAT_KOD" source="NEMGAZD_SZAKAGAZAT_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JEGYZ_TOKE_ERT_HUF" source="JEGYZ_TOKE_ERT_HUF"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ORSZAG_KOD" source="ORSZAG_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REGIO_KOD" source="REGIO_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MEGYE_KOD" source="MEGYE_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TELEPULES_KOD" source="TELEPULES_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ASZ_EVE" source="ASZ_EVE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NEV" source="NEV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$KOD$MEGYE_KOD" source="MEGYE_KOD"/>
+    </input>
+    <joinAttribute name="JOIN$KOD$MEGYE_KOD"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Tars_Join_4" cardinality="CN_N" joinType="inner" multiJoinNode="Tars_Join" multiJoinCentralTable="ws.Cegall" multiJoinOrder="Outside In">
+    <viewAttributes>
+      <viewAttribute id="Gazd_form_nev"/>
+      <viewAttribute id="Megye_nev"/>
+      <viewAttribute id="Nemgazd_szakagazat_nev"/>
+      <viewAttribute id="Tarsasag_nev"/>
+      <viewAttribute id="GAZD_FORM_KOD" aggregationType="sum"/>
+      <viewAttribute id="CEGALL_KOD" aggregationType="sum"/>
+      <viewAttribute id="NEMGAZD_AG_KOD"/>
+      <viewAttribute id="NEMGAZD_AGAZAT_KOD" aggregationType="sum"/>
+      <viewAttribute id="NEMGAZD_SZAKAGAZAT_KOD" aggregationType="sum"/>
+      <viewAttribute id="JEGYZ_TOKE_ERT_HUF" aggregationType="sum"/>
+      <viewAttribute id="ORSZAG_KOD"/>
+      <viewAttribute id="REGIO_KOD" aggregationType="sum"/>
+      <viewAttribute id="MEGYE_KOD" aggregationType="sum"/>
+      <viewAttribute id="TELEPULES_KOD" aggregationType="sum"/>
+      <viewAttribute id="ASZ_EVE"/>
+      <viewAttribute id="Regio_nev"/>
+      <viewAttribute id="NEV"/>
+      <viewAttribute hidden="true" id="JOIN$KOD$REGIO_KOD"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="ws.Regio">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Regio_nev" source="NEV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$KOD$REGIO_KOD" source="KOD"/>
+    </input>
+    <input node="Tars_Join_3">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Gazd_form_nev" source="Gazd_form_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Megye_nev" source="Megye_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Nemgazd_szakagazat_nev" source="Nemgazd_szakagazat_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Tarsasag_nev" source="Tarsasag_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GAZD_FORM_KOD" source="GAZD_FORM_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CEGALL_KOD" source="CEGALL_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NEMGAZD_AG_KOD" source="NEMGAZD_AG_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NEMGAZD_AGAZAT_KOD" source="NEMGAZD_AGAZAT_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NEMGAZD_SZAKAGAZAT_KOD" source="NEMGAZD_SZAKAGAZAT_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JEGYZ_TOKE_ERT_HUF" source="JEGYZ_TOKE_ERT_HUF"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ORSZAG_KOD" source="ORSZAG_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REGIO_KOD" source="REGIO_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MEGYE_KOD" source="MEGYE_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TELEPULES_KOD" source="TELEPULES_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ASZ_EVE" source="ASZ_EVE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NEV" source="NEV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$KOD$REGIO_KOD" source="REGIO_KOD"/>
+    </input>
+    <joinAttribute name="JOIN$KOD$REGIO_KOD"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Tars_Join_5" cardinality="CN_N" joinType="inner" multiJoinNode="Tars_Join" multiJoinCentralTable="ws.Cegall" multiJoinOrder="Outside In">
+    <viewAttributes>
+      <viewAttribute id="Gazd_form_nev"/>
+      <viewAttribute id="Megye_nev"/>
+      <viewAttribute id="Nemgazd_szakagazat_nev"/>
+      <viewAttribute id="ROV_NEV"/>
+      <viewAttribute id="HOSZ_NEV"/>
+      <viewAttribute id="CIM_EGYBEN"/>
+      <viewAttribute id="TARS_TIPUS"/>
+      <viewAttribute id="ADOSZAM"/>
+      <viewAttribute id="Tarsasag_nev"/>
+      <viewAttribute id="GAZD_FORM_KOD" aggregationType="sum"/>
+      <viewAttribute id="CEGALL_KOD" aggregationType="sum"/>
+      <viewAttribute id="NEMGAZD_AG_KOD"/>
+      <viewAttribute id="NEMGAZD_AGAZAT_KOD" aggregationType="sum"/>
+      <viewAttribute id="NEMGAZD_SZAKAGAZAT_KOD" aggregationType="sum"/>
+      <viewAttribute id="JEGYZ_TOKE_ERT_HUF" aggregationType="sum"/>
+      <viewAttribute id="ORSZAG_KOD"/>
+      <viewAttribute id="REGIO_KOD" aggregationType="sum"/>
+      <viewAttribute id="MEGYE_KOD" aggregationType="sum"/>
+      <viewAttribute id="TELEPULES_KOD" aggregationType="sum"/>
+      <viewAttribute id="ASZ_EVE"/>
+      <viewAttribute id="Regio_nev"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="ws.Tarsasag">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ROV_NEV" source="ROV_NEV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HOSZ_NEV" source="HOSZ_NEV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CIM_EGYBEN" source="CIM_EGYBEN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TARS_TIPUS" source="TARS_TIPUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ADOSZAM" source="ADOSZAM"/>
+    </input>
+    <input node="Tars_Join_4">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Gazd_form_nev" source="Gazd_form_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Megye_nev" source="Megye_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Nemgazd_szakagazat_nev" source="Nemgazd_szakagazat_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Tarsasag_nev" source="Tarsasag_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GAZD_FORM_KOD" source="GAZD_FORM_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CEGALL_KOD" source="CEGALL_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NEMGAZD_AG_KOD" source="NEMGAZD_AG_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NEMGAZD_AGAZAT_KOD" source="NEMGAZD_AGAZAT_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NEMGAZD_SZAKAGAZAT_KOD" source="NEMGAZD_SZAKAGAZAT_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JEGYZ_TOKE_ERT_HUF" source="JEGYZ_TOKE_ERT_HUF"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ORSZAG_KOD" source="ORSZAG_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REGIO_KOD" source="REGIO_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MEGYE_KOD" source="MEGYE_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TELEPULES_KOD" source="TELEPULES_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ASZ_EVE" source="ASZ_EVE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Regio_nev" source="Regio_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ROV_NEV" source="NEV"/>
+    </input>
+    <joinAttribute name="ROV_NEV"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Tars_Join_6" cardinality="CN_N" joinType="inner" multiJoinNode="Tars_Join" multiJoinCentralTable="ws.Cegall" multiJoinOrder="Outside In">
+    <viewAttributes>
+      <viewAttribute id="Gazd_form_nev"/>
+      <viewAttribute id="Megye_nev"/>
+      <viewAttribute id="Nemgazd_ag_nev"/>
+      <viewAttribute id="Nemgazd_szakagazat_nev"/>
+      <viewAttribute id="ROV_NEV"/>
+      <viewAttribute id="HOSZ_NEV"/>
+      <viewAttribute id="CIM_EGYBEN"/>
+      <viewAttribute id="TARS_TIPUS"/>
+      <viewAttribute id="ADOSZAM"/>
+      <viewAttribute id="Tarsasag_nev"/>
+      <viewAttribute id="GAZD_FORM_KOD" aggregationType="sum"/>
+      <viewAttribute id="CEGALL_KOD" aggregationType="sum"/>
+      <viewAttribute id="NEMGAZD_AG_KOD"/>
+      <viewAttribute id="NEMGAZD_AGAZAT_KOD" aggregationType="sum"/>
+      <viewAttribute id="NEMGAZD_SZAKAGAZAT_KOD" aggregationType="sum"/>
+      <viewAttribute id="JEGYZ_TOKE_ERT_HUF" aggregationType="sum"/>
+      <viewAttribute id="ORSZAG_KOD"/>
+      <viewAttribute id="REGIO_KOD" aggregationType="sum"/>
+      <viewAttribute id="MEGYE_KOD" aggregationType="sum"/>
+      <viewAttribute id="TELEPULES_KOD" aggregationType="sum"/>
+      <viewAttribute id="ASZ_EVE"/>
+      <viewAttribute id="Regio_nev"/>
+      <viewAttribute hidden="true" id="JOIN$KOD$NEMGAZD_AG_KOD"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="ws.Nemgazd_ag">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Nemgazd_ag_nev" source="NEV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$KOD$NEMGAZD_AG_KOD" source="KOD"/>
+    </input>
+    <input node="Tars_Join_5">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Gazd_form_nev" source="Gazd_form_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Megye_nev" source="Megye_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Nemgazd_szakagazat_nev" source="Nemgazd_szakagazat_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ROV_NEV" source="ROV_NEV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HOSZ_NEV" source="HOSZ_NEV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CIM_EGYBEN" source="CIM_EGYBEN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TARS_TIPUS" source="TARS_TIPUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ADOSZAM" source="ADOSZAM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Tarsasag_nev" source="Tarsasag_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GAZD_FORM_KOD" source="GAZD_FORM_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CEGALL_KOD" source="CEGALL_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NEMGAZD_AG_KOD" source="NEMGAZD_AG_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NEMGAZD_AGAZAT_KOD" source="NEMGAZD_AGAZAT_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NEMGAZD_SZAKAGAZAT_KOD" source="NEMGAZD_SZAKAGAZAT_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JEGYZ_TOKE_ERT_HUF" source="JEGYZ_TOKE_ERT_HUF"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ORSZAG_KOD" source="ORSZAG_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REGIO_KOD" source="REGIO_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MEGYE_KOD" source="MEGYE_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TELEPULES_KOD" source="TELEPULES_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ASZ_EVE" source="ASZ_EVE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Regio_nev" source="Regio_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$KOD$NEMGAZD_AG_KOD" source="NEMGAZD_AG_KOD"/>
+    </input>
+    <joinAttribute name="JOIN$KOD$NEMGAZD_AG_KOD"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Tars_Join_7" cardinality="CN_N" joinType="inner" multiJoinNode="Tars_Join" multiJoinCentralTable="ws.Cegall" multiJoinOrder="Outside In">
+    <viewAttributes>
+      <viewAttribute id="Gazd_form_nev"/>
+      <viewAttribute id="Megye_nev"/>
+      <viewAttribute id="Nemgazd_ag_nev"/>
+      <viewAttribute id="Nemgazd_agazat_nev"/>
+      <viewAttribute id="Nemgazd_szakagazat_nev"/>
+      <viewAttribute id="ROV_NEV"/>
+      <viewAttribute id="HOSZ_NEV"/>
+      <viewAttribute id="CIM_EGYBEN"/>
+      <viewAttribute id="TARS_TIPUS"/>
+      <viewAttribute id="ADOSZAM"/>
+      <viewAttribute id="Tarsasag_nev"/>
+      <viewAttribute id="GAZD_FORM_KOD" aggregationType="sum"/>
+      <viewAttribute id="CEGALL_KOD" aggregationType="sum"/>
+      <viewAttribute id="NEMGAZD_AG_KOD"/>
+      <viewAttribute id="NEMGAZD_AGAZAT_KOD" aggregationType="sum"/>
+      <viewAttribute id="NEMGAZD_SZAKAGAZAT_KOD" aggregationType="sum"/>
+      <viewAttribute id="JEGYZ_TOKE_ERT_HUF" aggregationType="sum"/>
+      <viewAttribute id="ORSZAG_KOD"/>
+      <viewAttribute id="REGIO_KOD" aggregationType="sum"/>
+      <viewAttribute id="MEGYE_KOD" aggregationType="sum"/>
+      <viewAttribute id="TELEPULES_KOD" aggregationType="sum"/>
+      <viewAttribute id="ASZ_EVE"/>
+      <viewAttribute id="Regio_nev"/>
+      <viewAttribute hidden="true" id="JOIN$KOD$NEMGAZD_AGAZAT_KOD"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="ws.Nemgazd_agazat">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Nemgazd_agazat_nev" source="NEV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$KOD$NEMGAZD_AGAZAT_KOD" source="KOD"/>
+    </input>
+    <input node="Tars_Join_6">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Gazd_form_nev" source="Gazd_form_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Megye_nev" source="Megye_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Nemgazd_ag_nev" source="Nemgazd_ag_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Nemgazd_szakagazat_nev" source="Nemgazd_szakagazat_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ROV_NEV" source="ROV_NEV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HOSZ_NEV" source="HOSZ_NEV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CIM_EGYBEN" source="CIM_EGYBEN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TARS_TIPUS" source="TARS_TIPUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ADOSZAM" source="ADOSZAM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Tarsasag_nev" source="Tarsasag_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GAZD_FORM_KOD" source="GAZD_FORM_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CEGALL_KOD" source="CEGALL_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NEMGAZD_AG_KOD" source="NEMGAZD_AG_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NEMGAZD_AGAZAT_KOD" source="NEMGAZD_AGAZAT_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NEMGAZD_SZAKAGAZAT_KOD" source="NEMGAZD_SZAKAGAZAT_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JEGYZ_TOKE_ERT_HUF" source="JEGYZ_TOKE_ERT_HUF"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ORSZAG_KOD" source="ORSZAG_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REGIO_KOD" source="REGIO_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MEGYE_KOD" source="MEGYE_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TELEPULES_KOD" source="TELEPULES_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ASZ_EVE" source="ASZ_EVE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Regio_nev" source="Regio_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$KOD$NEMGAZD_AGAZAT_KOD" source="NEMGAZD_AGAZAT_KOD"/>
+    </input>
+    <joinAttribute name="JOIN$KOD$NEMGAZD_AGAZAT_KOD"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Tars_Join_8" cardinality="CN_N" joinType="inner" multiJoinNode="Tars_Join" multiJoinCentralTable="ws.Cegall" multiJoinOrder="Outside In">
+    <viewAttributes>
+      <viewAttribute id="Gazd_form_nev"/>
+      <viewAttribute id="Megye_nev"/>
+      <viewAttribute id="Nemgazd_ag_nev"/>
+      <viewAttribute id="Nemgazd_agazat_nev"/>
+      <viewAttribute id="Nemgazd_szakagazat_nev"/>
+      <viewAttribute id="ROV_NEV"/>
+      <viewAttribute id="HOSZ_NEV"/>
+      <viewAttribute id="CIM_EGYBEN"/>
+      <viewAttribute id="TARS_TIPUS"/>
+      <viewAttribute id="ADOSZAM"/>
+      <viewAttribute id="Tarsasag_nev"/>
+      <viewAttribute id="GAZD_FORM_KOD" aggregationType="sum"/>
+      <viewAttribute id="CEGALL_KOD" aggregationType="sum"/>
+      <viewAttribute id="NEMGAZD_AG_KOD"/>
+      <viewAttribute id="NEMGAZD_AGAZAT_KOD" aggregationType="sum"/>
+      <viewAttribute id="NEMGAZD_SZAKAGAZAT_KOD" aggregationType="sum"/>
+      <viewAttribute id="JEGYZ_TOKE_ERT_HUF" aggregationType="sum"/>
+      <viewAttribute id="ORSZAG_KOD"/>
+      <viewAttribute id="REGIO_KOD" aggregationType="sum"/>
+      <viewAttribute id="MEGYE_KOD" aggregationType="sum"/>
+      <viewAttribute id="TELEPULES_KOD" aggregationType="sum"/>
+      <viewAttribute id="ASZ_EVE"/>
+      <viewAttribute id="Regio_nev"/>
+      <viewAttribute id="ORSZAG_NEV"/>
+      <viewAttribute hidden="true" id="JOIN$KOD$ORSZAG_KOD"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="ws.Orszag">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ORSZAG_NEV" source="NEV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$KOD$ORSZAG_KOD" source="KOD"/>
+    </input>
+    <input node="Tars_Join_7">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Gazd_form_nev" source="Gazd_form_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Megye_nev" source="Megye_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Nemgazd_ag_nev" source="Nemgazd_ag_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Nemgazd_agazat_nev" source="Nemgazd_agazat_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Nemgazd_szakagazat_nev" source="Nemgazd_szakagazat_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ROV_NEV" source="ROV_NEV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HOSZ_NEV" source="HOSZ_NEV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CIM_EGYBEN" source="CIM_EGYBEN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TARS_TIPUS" source="TARS_TIPUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ADOSZAM" source="ADOSZAM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Tarsasag_nev" source="Tarsasag_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GAZD_FORM_KOD" source="GAZD_FORM_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CEGALL_KOD" source="CEGALL_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NEMGAZD_AG_KOD" source="NEMGAZD_AG_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NEMGAZD_AGAZAT_KOD" source="NEMGAZD_AGAZAT_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NEMGAZD_SZAKAGAZAT_KOD" source="NEMGAZD_SZAKAGAZAT_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JEGYZ_TOKE_ERT_HUF" source="JEGYZ_TOKE_ERT_HUF"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ORSZAG_KOD" source="ORSZAG_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REGIO_KOD" source="REGIO_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MEGYE_KOD" source="MEGYE_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TELEPULES_KOD" source="TELEPULES_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ASZ_EVE" source="ASZ_EVE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Regio_nev" source="Regio_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$KOD$ORSZAG_KOD" source="ORSZAG_KOD"/>
+    </input>
+    <joinAttribute name="JOIN$KOD$ORSZAG_KOD"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Tars_Join_9" cardinality="CN_N" joinType="inner" multiJoinNode="Tars_Join" multiJoinCentralTable="ws.Cegall" multiJoinOrder="Outside In">
+    <viewAttributes>
+      <viewAttribute id="Gazd_form_nev"/>
+      <viewAttribute id="Megye_nev"/>
+      <viewAttribute id="Nemgazd_ag_nev"/>
+      <viewAttribute id="Nemgazd_agazat_nev"/>
+      <viewAttribute id="Nemgazd_szakagazat_nev"/>
+      <viewAttribute id="ROV_NEV"/>
+      <viewAttribute id="HOSZ_NEV"/>
+      <viewAttribute id="CIM_EGYBEN"/>
+      <viewAttribute id="TARS_TIPUS"/>
+      <viewAttribute id="ADOSZAM"/>
+      <viewAttribute id="Tarsasag_nev"/>
+      <viewAttribute id="GAZD_FORM_KOD" aggregationType="sum"/>
+      <viewAttribute id="CEGALL_KOD" aggregationType="sum"/>
+      <viewAttribute id="NEMGAZD_AG_KOD"/>
+      <viewAttribute id="NEMGAZD_AGAZAT_KOD" aggregationType="sum"/>
+      <viewAttribute id="NEMGAZD_SZAKAGAZAT_KOD" aggregationType="sum"/>
+      <viewAttribute id="JEGYZ_TOKE_ERT_HUF" aggregationType="sum"/>
+      <viewAttribute id="ORSZAG_KOD"/>
+      <viewAttribute id="REGIO_KOD" aggregationType="sum"/>
+      <viewAttribute id="MEGYE_KOD" aggregationType="sum"/>
+      <viewAttribute id="TELEPULES_KOD" aggregationType="sum"/>
+      <viewAttribute id="ASZ_EVE"/>
+      <viewAttribute id="Regio_nev"/>
+      <viewAttribute id="Telepules_nev"/>
+      <viewAttribute id="ORSZAG_NEV"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="Tars_Join_8">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Gazd_form_nev" source="Gazd_form_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Megye_nev" source="Megye_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Nemgazd_ag_nev" source="Nemgazd_ag_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Nemgazd_agazat_nev" source="Nemgazd_agazat_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Nemgazd_szakagazat_nev" source="Nemgazd_szakagazat_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ROV_NEV" source="ROV_NEV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HOSZ_NEV" source="HOSZ_NEV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CIM_EGYBEN" source="CIM_EGYBEN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TARS_TIPUS" source="TARS_TIPUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ADOSZAM" source="ADOSZAM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Tarsasag_nev" source="Tarsasag_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GAZD_FORM_KOD" source="GAZD_FORM_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CEGALL_KOD" source="CEGALL_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NEMGAZD_AG_KOD" source="NEMGAZD_AG_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NEMGAZD_AGAZAT_KOD" source="NEMGAZD_AGAZAT_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NEMGAZD_SZAKAGAZAT_KOD" source="NEMGAZD_SZAKAGAZAT_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JEGYZ_TOKE_ERT_HUF" source="JEGYZ_TOKE_ERT_HUF"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ORSZAG_KOD" source="ORSZAG_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REGIO_KOD" source="REGIO_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MEGYE_KOD" source="MEGYE_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TELEPULES_KOD" source="TELEPULES_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ASZ_EVE" source="ASZ_EVE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Regio_nev" source="Regio_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ORSZAG_NEV" source="ORSZAG_NEV"/>
+    </input>
+    <input node="ws.Telepules">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Telepules_nev" source="NEV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TELEPULES_KOD" source="KOD"/>
+    </input>
+    <joinAttribute name="TELEPULES_KOD"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Tars_Join_10" cardinality="CN_N" joinType="inner" multiJoinNode="Tars_Join" multiJoinCentralTable="ws.Cegall" multiJoinOrder="Outside In">
+    <viewAttributes>
+      <viewAttribute id="Gazd_form_nev"/>
+      <viewAttribute id="Megye_nev"/>
+      <viewAttribute id="Nemgazd_ag_nev"/>
+      <viewAttribute id="Nemgazd_agazat_nev"/>
+      <viewAttribute id="Nemgazd_szakagazat_nev"/>
+      <viewAttribute id="ROV_NEV"/>
+      <viewAttribute id="HOSZ_NEV"/>
+      <viewAttribute id="CIM_EGYBEN"/>
+      <viewAttribute id="TARS_TIPUS"/>
+      <viewAttribute id="ADOSZAM"/>
+      <viewAttribute id="Tarsasag_nev"/>
+      <viewAttribute id="GAZD_FORM_KOD" aggregationType="sum"/>
+      <viewAttribute id="CEGALL_KOD" aggregationType="sum"/>
+      <viewAttribute id="NEMGAZD_AG_KOD"/>
+      <viewAttribute id="NEMGAZD_AGAZAT_KOD" aggregationType="sum"/>
+      <viewAttribute id="NEMGAZD_SZAKAGAZAT_KOD" aggregationType="sum"/>
+      <viewAttribute id="JEGYZ_TOKE_ERT_HUF" aggregationType="sum"/>
+      <viewAttribute id="ORSZAG_KOD"/>
+      <viewAttribute id="REGIO_KOD" aggregationType="sum"/>
+      <viewAttribute id="MEGYE_KOD" aggregationType="sum"/>
+      <viewAttribute id="TELEPULES_KOD" aggregationType="sum"/>
+      <viewAttribute id="ASZ_EVE"/>
+      <viewAttribute id="Regio_nev"/>
+      <viewAttribute id="Telepules_nev"/>
+      <viewAttribute id="ORSZAG_NEV"/>
+      <viewAttribute hidden="true" id="JOIN$KOD$CEGALL_KOD"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="ws.Cegall">
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$KOD$CEGALL_KOD" source="KOD"/>
+    </input>
+    <input node="Tars_Join_9">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Gazd_form_nev" source="Gazd_form_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Megye_nev" source="Megye_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Nemgazd_ag_nev" source="Nemgazd_ag_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Nemgazd_agazat_nev" source="Nemgazd_agazat_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Nemgazd_szakagazat_nev" source="Nemgazd_szakagazat_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ROV_NEV" source="ROV_NEV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HOSZ_NEV" source="HOSZ_NEV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CIM_EGYBEN" source="CIM_EGYBEN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TARS_TIPUS" source="TARS_TIPUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ADOSZAM" source="ADOSZAM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Tarsasag_nev" source="Tarsasag_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GAZD_FORM_KOD" source="GAZD_FORM_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CEGALL_KOD" source="CEGALL_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NEMGAZD_AG_KOD" source="NEMGAZD_AG_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NEMGAZD_AGAZAT_KOD" source="NEMGAZD_AGAZAT_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NEMGAZD_SZAKAGAZAT_KOD" source="NEMGAZD_SZAKAGAZAT_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JEGYZ_TOKE_ERT_HUF" source="JEGYZ_TOKE_ERT_HUF"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ORSZAG_KOD" source="ORSZAG_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REGIO_KOD" source="REGIO_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MEGYE_KOD" source="MEGYE_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TELEPULES_KOD" source="TELEPULES_KOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ASZ_EVE" source="ASZ_EVE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Regio_nev" source="Regio_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Telepules_nev" source="Telepules_nev"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ORSZAG_NEV" source="ORSZAG_NEV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$KOD$CEGALL_KOD" source="CEGALL_KOD"/>
+    </input>
+    <joinAttribute name="JOIN$KOD$CEGALL_KOD"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Tars_Join_10">
+  <attributes>
+    <attribute id="gazd_form_nev" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NEV"/>
+      <keyMapping columnObjectName="Tars_Join_10" columnName="Gazd_form_nev"/>
+    </attribute>
+    <attribute id="megye_nev" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NEV"/>
+      <keyMapping columnObjectName="Tars_Join_10" columnName="Megye_nev"/>
+    </attribute>
+    <attribute id="nemgazd_ag_nev" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NEV"/>
+      <keyMapping columnObjectName="Tars_Join_10" columnName="Nemgazd_ag_nev"/>
+    </attribute>
+    <attribute id="nemgazd_agazat_nev" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NEV"/>
+      <keyMapping columnObjectName="Tars_Join_10" columnName="Nemgazd_agazat_nev"/>
+    </attribute>
+    <attribute id="nemgazd_szakagazat_nev" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NEV"/>
+      <keyMapping columnObjectName="Tars_Join_10" columnName="Nemgazd_szakagazat_nev"/>
+    </attribute>
+    <attribute id="rov_nev" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ROV_NEV"/>
+      <keyMapping columnObjectName="Tars_Join_10" columnName="ROV_NEV"/>
+    </attribute>
+    <attribute id="hosz_nev" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="HOSZ_NEV"/>
+      <keyMapping columnObjectName="Tars_Join_10" columnName="HOSZ_NEV"/>
+    </attribute>
+    <attribute id="cim_egyben" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CIM_EGYBEN"/>
+      <keyMapping columnObjectName="Tars_Join_10" columnName="CIM_EGYBEN"/>
+    </attribute>
+    <attribute id="tars_tipus" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TARS_TIPUS"/>
+      <keyMapping columnObjectName="Tars_Join_10" columnName="TARS_TIPUS"/>
+    </attribute>
+    <attribute id="adoszam" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ADOSZAM"/>
+      <keyMapping columnObjectName="Tars_Join_10" columnName="ADOSZAM"/>
+    </attribute>
+    <attribute id="tarsasag_nev" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NEV"/>
+      <keyMapping columnObjectName="Tars_Join_10" columnName="Tarsasag_nev"/>
+    </attribute>
+    <attribute id="gazd_form_kod" order="12" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="GAZD_FORM_KOD"/>
+      <keyMapping columnObjectName="Tars_Join_10" columnName="GAZD_FORM_KOD"/>
+    </attribute>
+    <attribute id="cegall_kod" order="13" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CEGALL_KOD"/>
+      <keyMapping columnObjectName="Tars_Join_10" columnName="CEGALL_KOD"/>
+    </attribute>
+    <attribute id="nemgazd_ag_kod" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NEMGAZD_AG_KOD"/>
+      <keyMapping columnObjectName="Tars_Join_10" columnName="NEMGAZD_AG_KOD"/>
+    </attribute>
+    <attribute id="nemgazd_agazat_kod" order="15" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NEMGAZD_AGAZAT_KOD"/>
+      <keyMapping columnObjectName="Tars_Join_10" columnName="NEMGAZD_AGAZAT_KOD"/>
+    </attribute>
+    <attribute id="nemgazd_szakagazat_kod" order="16" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NEMGAZD_SZAKAGAZAT_KOD"/>
+      <keyMapping columnObjectName="Tars_Join_10" columnName="NEMGAZD_SZAKAGAZAT_KOD"/>
+    </attribute>
+    <attribute id="jegyz_toke_ert_huf" order="17" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="JEGYZ_TOKE_ERT_HUF"/>
+      <keyMapping columnObjectName="Tars_Join_10" columnName="JEGYZ_TOKE_ERT_HUF"/>
+    </attribute>
+    <attribute id="orszag_kod" order="18" displayAttribute="false" attributeHierarchyActive="false" semanticType="empty">
+      <descriptions defaultDescription="ORSZAG_KOD"/>
+      <keyMapping columnObjectName="Tars_Join_10" columnName="ORSZAG_KOD"/>
+    </attribute>
+    <attribute id="regio_kod" order="19" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="REGIO_KOD"/>
+      <keyMapping columnObjectName="Tars_Join_10" columnName="REGIO_KOD"/>
+    </attribute>
+    <attribute id="megye_kod" order="20" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MEGYE_KOD"/>
+      <keyMapping columnObjectName="Tars_Join_10" columnName="MEGYE_KOD"/>
+    </attribute>
+    <attribute id="telepules_kod" order="21" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TELEPULES_KOD"/>
+      <keyMapping columnObjectName="Tars_Join_10" columnName="TELEPULES_KOD"/>
+    </attribute>
+    <attribute id="asz_eve" order="22" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ASZ_EVE"/>
+      <keyMapping columnObjectName="Tars_Join_10" columnName="ASZ_EVE"/>
+    </attribute>
+    <attribute id="regio_nev" order="23" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NEV"/>
+      <keyMapping columnObjectName="Tars_Join_10" columnName="Regio_nev"/>
+    </attribute>
+    <attribute id="telepules_nev" order="24" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NEV"/>
+      <keyMapping columnObjectName="Tars_Join_10" columnName="Telepules_nev"/>
+    </attribute>
+  
+    <attribute id="orszag_nev" order="25" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NEV"/>
+  
+      <keyMapping columnObjectName="Tars_Join_10" columnName="ORSZAG_NEV"/>
+  
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/></logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Tars_Join" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="109" y="192"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="ws.Cegall" modelObjectNameSpace="Tars_Join" modelObjectType="JoinNodeInput" multiJoinViewNodeName="Tars_Join">
+      <upperLeftCorner x="2219" y="43"/>
+      <rectangleSize width="119"/>
+    </shape>
+    <shape modelObjectName="ws.Telepules" modelObjectNameSpace="Tars_Join" modelObjectType="JoinNodeInput" multiJoinViewNodeName="Tars_Join">
+      <upperLeftCorner x="3189" y="269"/>
+      <rectangleSize width="137"/>
+    </shape>
+  
+    <shape modelObjectName="ws.Orszag" modelObjectNameSpace="Tars_Join" modelObjectType="JoinNodeInput" multiJoinViewNodeName="Tars_Join">
+      <upperLeftCorner x="3145" y="183"/>
+      <rectangleSize width="124"/>
+    </shape>
+    <shape modelObjectName="ws.Nemgazd_agazat" modelObjectNameSpace="Tars_Join" modelObjectType="JoinNodeInput" multiJoinViewNodeName="Tars_Join">
+      <upperLeftCorner x="3077" y="98"/>
+      <rectangleSize width="180"/>
+    </shape>
+    <shape modelObjectName="ws.Nemgazd_ag" modelObjectNameSpace="Tars_Join" modelObjectType="JoinNodeInput" multiJoinViewNodeName="Tars_Join">
+      <upperLeftCorner x="3010" y="7"/>
+      <rectangleSize width="157"/>
+    </shape>
+    <shape modelObjectName="ws.Tarsasag" modelObjectNameSpace="Tars_Join" modelObjectType="JoinNodeInput" multiJoinViewNodeName="Tars_Join">
+      <upperLeftCorner x="2374" y="-133"/>
+      <rectangleSize width="158"/>
+    </shape>
+    <shape modelObjectName="ws.Regio" modelObjectNameSpace="Tars_Join" modelObjectType="JoinNodeInput" multiJoinViewNodeName="Tars_Join">
+      <upperLeftCorner x="2462" y="259"/>
+      <rectangleSize width="116"/>
+    </shape>
+    <shape modelObjectName="ws.Megye" modelObjectNameSpace="Tars_Join" modelObjectType="JoinNodeInput" multiJoinViewNodeName="Tars_Join">
+      <upperLeftCorner x="2462" y="380"/>
+      <rectangleSize width="120"/>
+    </shape>
+    <shape modelObjectName="ws.Nemgazd_szakagazat" modelObjectNameSpace="Tars_Join" modelObjectType="JoinNodeInput" multiJoinViewNodeName="Tars_Join">
+      <upperLeftCorner x="2359" y="136"/>
+      <rectangleSize width="206"/>
+    </shape>
+    <shape modelObjectName="ws.Gazd_form" modelObjectNameSpace="Tars_Join" modelObjectType="JoinNodeInput" multiJoinViewNodeName="Tars_Join">
+      <upperLeftCorner x="2944" y="380"/>
+      <rectangleSize width="146"/>
+    </shape>
+    <shape modelObjectName="ws.Tarsasag_kodok" modelObjectNameSpace="Tars_Join" modelObjectType="JoinNodeInput" multiJoinViewNodeName="Tars_Join">
+      <upperLeftCorner x="2720" y="30"/>
+      <rectangleSize width="248"/>
+    </shape></shapes>
+</layout>
+</Calculation:scenario>
