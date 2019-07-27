@@ -1,0 +1,18 @@
+svg .Land {
+	stroke-width: 2;
+	stroke: #000;
+	transition: stroke 0.5s, stroke-width 0.5s;
+	fill: #f1f1f1;
+}
+
+svg .county.active {
+	stroke-width: 6;
+	stroke: #265d8c;
+	fill: #337AB7;
+}
+
+svg {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}

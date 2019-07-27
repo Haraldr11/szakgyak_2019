@@ -1,0 +1,91 @@
+<!-- regions -->
+<table>
+  <tr class="table-heading">
+    <th>{{regionColumns[0]}}</th>
+    <th>{{regionColumns[1]}}</th>
+    <th class="table-quantity">{{regionColumns[2]}}</th>
+  </tr>
+  <tr *ngFor="let e of regionData; let i = index" 
+    (click)="regionClicked(i)" 
+    [class.active]="i === selectedRegionIndex">
+    <td (click)="selectRegion(e.REGIO)">{{e.REGIO.replace(" régió","")}}</td>
+    <td (click)="selectRegion(e.REGIO)">{{e.ERTEK | number}}</td>
+    <td class="table-quantity" (click)="selectRegion(e.REGIO)">{{e.MENNYISEG}}</td>
+  </tr>
+</table>
+
+<!-- counties -->
+<table>
+  <tr class="table-heading">
+    <th>{{countyColumns[0]}}</th>
+    <th>{{countyColumns[1]}}</th>
+    <th>{{countyColumns[2]}}</th>
+  </tr>
+  <tr *ngFor="let e of countyData; let i = index"
+    (click)="countyClicked(i)" 
+    [class.active]="i === selectedCountyIndex">
+    <td (click)="selectCounty(e.MEGYE)">{{e.MEGYE}}</td>
+    <td (click)="selectCounty(e.MEGYE)">{{e.ERTEK | number}}</td>
+    <td (click)="selectCounty(e.MEGYE)">{{e.MENNYISEG}}</td>
+  </tr>
+</table>
+
+<!-- cities -->
+<table>
+  <tr class="table-heading">
+    <th>{{cityColumns[0]}}</th>
+    <th>{{cityColumns[1]}}</th>
+    <th>{{cityColumns[2]}}</th>
+  </tr>
+  <tr *ngFor="let e of cityData; let i = index"
+    (click)="cityClicked(i)" 
+    [class.active]="i === selectedCityIndex">
+    <td>{{e.TELEPULES}}</td>
+    <td>{{e.ERTEK | number}}</td>
+    <td>{{e.MENNYISEG}}</td>
+  </tr>
+</table>
+
+<!-- years -->
+<div class="btn-group">
+  <button type="button" 
+          value="2010" 
+          id="2010"
+          (click)="yearClicked($event.target.value)"
+          class="btn btn-primary">2010</button>
+  <button type="button" 
+          value="2011" 
+          id="2011"
+          (click)="yearClicked($event.target.value)"
+          class="btn btn-primary">2011</button>
+  <button type="button" 
+          value="2012" 
+          id="2012"
+          (click)="yearClicked($event.target.value)" 
+          class="btn btn-primary">2012</button>
+  <button type="button" 
+          value="2013" 
+          id="2013"
+          (click)="yearClicked($event.target.value)" 
+          class="btn btn-primary">2013</button>
+  <button type="button" 
+          value="2014" 
+          id="2014"
+          (click)="yearClicked($event.target.value)" 
+          class="btn btn-primary">2014</button>
+  <button type="button" 
+          value="2015" 
+          id="2015"
+          (click)="yearClicked($event.target.value)" 
+          class="btn btn-primary">2015</button>
+  <button type="button" 
+          value="2016" 
+          id="2016"
+          (click)="yearClicked($event.target.value)" 
+          class="btn btn-primary">2016</button>
+  <button type="button" 
+          value="2017" 
+          id="2017"
+          (click)="yearClicked($event.target.value)" 
+          class="btn btn-primary">2017</button>
+</div>
